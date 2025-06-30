@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Ação | Visanmédica - Live Consultoria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul-petroleo: #06192a;
+            --verde-vibrante: #00e800;
+            --cinza-claro: #f4f4f4;
+            --branco: #ffffff;
+            --font-primaria: 'Poppins', sans-serif;
+            --font-secundaria: 'Merriweather', serif;
+        }
+        
+        body {
+            font-family: var(--font-primaria);
+            background-color: var(--azul-petroleo);
+            color: var(--cinza-claro);
+            background-image: radial-gradient(circle at 50% 0, rgba(255, 255, 255, 0.05), transparent 50%);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-primaria);
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        p, li, span, td, th, div {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .text-brand-green {
+            color: var(--verde-vibrante);
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+        
+        .btn-brand {
+            background-color: var(--verde-vibrante);
+            color: var(--azul-petroleo);
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-shadow: none;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+        
+        .btn-brand:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 232, 0, 0.2);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--verde-vibrante);
+            border: 2px solid var(--verde-vibrante);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-shadow: none;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--verde-vibrante);
+            color: var(--azul-petroleo);
+        }
+        
+        .font-brand-secondary {
+            font-family: var(--font-secundaria);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(rgba(6, 25, 42, 0.85), rgba(6, 25, 42, 1)), 
+                        url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2832&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
+        }
+        
+        .section-bg-pattern {
+            background-color: #111827;
+            background-image: radial-gradient(rgba(200, 200, 200, 0.05) 1px, transparent 1px);
+            background-size: 15px 15px;
+        }
+        
+        .tab-button {
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            border-radius: 12px 12px 0 0;
+            cursor: pointer;
+        }
+        
+        .tab-button.active {
+            color: var(--verde-vibrante);
+            border-bottom-color: var(--verde-vibrante);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .card-rounded {
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .developer-credit {
+            font-size: 0.75rem;
+            opacity: 0.4;
+            color: var(--cinza-claro);
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .status-badge {
+            background-color: var(--verde-vibrante);
+            color: var(--azul-petroleo);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-green-900/20"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="fade-in">
+                <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" 
+                     alt="Live Consultoria" class="mx-auto mb-8 h-20">
+                <div class="status-badge mb-6">CONTRATO ASSINADO ✓</div>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    Plano de <span class="text-brand-green">Ação</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
+                    Consultoria Tática para <strong>VISANMÉDICA</strong><br>
+                    <span class="text-lg">Estruturação e Organização de Processos</span>
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                    <button onclick="scrollToSection('escopo')" 
+                            class="btn-brand px-8 py-4 text-lg">
+                        📋 Ver Escopo Contratual
+                    </button>
+                    <button onclick="scrollToSection('cronograma')" 
+                            class="btn-secondary px-8 py-4 text-lg">
+                        📅 Ver Cronograma
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Escopo Contratual Section -->
+    <section id="escopo" class="py-20 section-bg-pattern">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    📋 Escopo <span class="text-brand-green">Contratual</span>
+                </h2>
+                <p class="text-xl opacity-90 max-w-3xl mx-auto">
+                    6 atividades estruturantes conforme contrato assinado em 19/06/2025
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gray-800/50 backdrop-blur-sm card-rounded p-8 mb-8">
+                    <div class="font-brand-secondary text-lg leading-relaxed">
+                        <h3 class="text-2xl font-bold text-brand-green mb-4">🎯 Objetivo Contratual</h3>
+                        <p class="mb-6">
+                            <strong>Consultoria para organização e estruturação de processos</strong> da Visanmédica, desenvolvendo ações estruturantes em <strong>3 meses</strong> com <strong>270 horas</strong> de trabalho especializado.
+                        </p>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 bg-green-900/30 border-l-4 border-green-500 p-4 rounded">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-brand-green">3</div>
+                                <div class="text-sm">Meses</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-brand-green">270</div>
+                                <div class="text-sm">Horas</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-brand-green">R$ 9.000</div>
+                                <div class="text-sm">Investimento</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Atividades Contratuais -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-800/50 card-rounded p-6">
+                        <div class="text-brand-green text-xl font-bold mb-3">ATIVIDADE 1</div>
+                        <h3 class="text-lg font-bold mb-3">Análise e Mapeamento de Processos</h3>
+                        <p class="text-sm opacity-90 mb-4">
+                            Diagnóstico detalhado dos fluxos de trabalho e processos operacionais existentes em cada setor, identificando pontos de melhoria, gargalos e oportunidades.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-brand-green font-semibold">60 horas</span>
+                            <span class="font-bold">R$ 2.000</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 card-rounded p-6">
+                        <div class="text-brand-green text-xl font-bold mb-3">ATIVIDADE 2</div>
+                        <h3 class="text-lg font-bold mb-3">Definição de Metas Táticas</h3>
+                        <p class="text-sm opacity-90 mb-4">
+                            Formulação de metas táticas claras, mensuráveis e alinhadas aos objetivos estratégicos, desdobrando-as para os diversos departamentos e equipes.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-brand-green font-semibold">30 horas</span>
+                            <span class="font-bold">R$ 1.000</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 card-rounded p-6">
+                        <div class="text-brand-green text-xl font-bold mb-3">ATIVIDADE 3</div>
+                        <h3 class="text-lg font-bold mb-3">Planos de Ação Operacionais</h3>
+                        <p class="text-sm opacity-90 mb-4">
+                            Elaboração de planos de ação práticos e detalhados para implementação das melhorias identificadas e alcance das metas táticas.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-brand-green font-semibold">50 horas</span>
+                            <span class="font-bold">R$ 1.667</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 card-rounded p-6">
+                        <div class="text-brand-green text-xl font-bold mb-3">ATIVIDADE 4</div>
+                        <h3 class="text-lg font-bold mb-3">Implementação de KPIs</h3>
+                        <p class="text-sm opacity-90 mb-4">
+                            Seleção e implementação de indicadores-chave de desempenho pertinentes a cada setor, visando monitorar o progresso das ações.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-brand-green font-semibold">40 horas</span>
+                            <span class="font-bold">R$ 1.333</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 card-rounded p-6">
+                        <div class="text-brand-green text-xl font-bold mb-3">ATIVIDADE 5</div>
+                        <h3 class="text-lg font-bold mb-3">Suporte à Gestão</h3>
+                        <p class="text-sm opacity-90 mb-4">
+                            Relatórios analíticos, pareceres e recomendações embasadas para subsidiar a tomada de decisões táticas de forma ágil e assertiva.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-brand-green font-semibold">45 horas</span>
+                            <span class="font-bold">R$ 1.500</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 card-rounded p-6">
+                        <div class="text-brand-green text-xl font-bold mb-3">ATIVIDADE 6</div>
+                        <h3 class="text-lg font-bold mb-3">Otimização de Recursos</h3>
+                        <p class="text-sm opacity-90 mb-4">
+                            Identificação de oportunidades para otimização na alocação e utilização de recursos, maximizando ROI e sustentabilidade operacional.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-brand-green font-semibold">45 horas</span>
+                            <span class="font-bold">R$ 1.500</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cronograma Section -->
+    <section id="cronograma" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    📅 Cronograma <span class="text-brand-green">Executivo</span>
+                </h2>
+                <p class="text-xl opacity-90 max-w-3xl mx-auto">
+                    Execução em 3 meses - Agosto a Novembro de 2025
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gray-800/50 card-rounded p-8">
+                    <div class="space-y-6">
+                        <div class="flex items-center bg-green-900/30 rounded-lg p-6">
+                            <div class="w-24 text-brand-green font-bold text-xl">MÊS 1</div>
+                            <div class="flex-1">
+                                <div class="font-semibold text-lg mb-2">Diagnóstico e Estruturação Inicial</div>
+                                <div class="text-sm opacity-75 mb-2">05 de agosto a 05 de setembro de 2025</div>
+                                <div class="text-sm">
+                                    • Análise e Mapeamento de Processos (60h)<br>
+                                    • Definição e Estruturação de Metas Táticas (30h)
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-brand-green font-bold">90h</div>
+                                <div class="text-sm">R$ 3.000</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center bg-blue-900/30 rounded-lg p-6">
+                            <div class="w-24 text-brand-green font-bold text-xl">MÊS 2</div>
+                            <div class="flex-1">
+                                <div class="font-semibold text-lg mb-2">Planejamento e Implementação</div>
+                                <div class="text-sm opacity-75 mb-2">05 de setembro a 05 de outubro de 2025</div>
+                                <div class="text-sm">
+                                    • Desenvolvimento de Planos de Ação Operacionais (50h)<br>
+                                    • Implementação de Indicadores de Desempenho (40h)
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-brand-green font-bold">90h</div>
+                                <div class="text-sm">R$ 3.000</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center bg-purple-900/30 rounded-lg p-6">
+                            <div class="w-24 text-brand-green font-bold text-xl">MÊS 3</div>
+                            <div class="flex-1">
+                                <div class="font-semibold text-lg mb-2">Suporte e Otimização</div>
+                                <div class="text-sm opacity-75 mb-2">05 de outubro a 05 de novembro de 2025</div>
+                                <div class="text-sm">
+                                    • Suporte à Gestão e Tomada de Decisão (45h)<br>
+                                    • Otimização de Recursos (45h)
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-brand-green font-bold">90h</div>
+                                <div class="text-sm">R$ 3.000</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Condições de Pagamento -->
+                <div class="mt-8 bg-gray-800/50 card-rounded p-8">
+                    <h3 class="text-2xl font-bold text-brand-green mb-6 text-center">💳 Condições de Pagamento</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center bg-gray-700/50 rounded-lg p-4">
+                            <div class="text-brand-green font-bold text-xl mb-2">1ª Parcela</div>
+                            <div class="font-bold text-lg">R$ 3.000,00</div>
+                            <div class="text-sm opacity-75">Venc: 10/09/2025</div>
+                        </div>
+                        <div class="text-center bg-gray-700/50 rounded-lg p-4">
+                            <div class="text-brand-green font-bold text-xl mb-2">2ª Parcela</div>
+                            <div class="font-bold text-lg">R$ 3.000,00</div>
+                            <div class="text-sm opacity-75">Venc: 10/10/2025</div>
+                        </div>
+                        <div class="text-center bg-gray-700/50 rounded-lg p-4">
+                            <div class="text-brand-green font-bold text-xl mb-2">3ª Parcela</div>
+                            <div class="font-bold text-lg">R$ 3.000,00</div>
+                            <div class="text-sm opacity-75">Venc: 10/11/2025</div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4 text-sm opacity-75">
+                        Pagamento com mês vencido - Transferência bancária
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entregáveis Section -->
+    <section class="py-20 section-bg-pattern">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    📦 Entregáveis <span class="text-brand-green">Contratuais</span>
+                </h2>
+                <p class="text-xl opacity-90 max-w-3xl mx-auto">
+                    Produtos e resultados tangíveis por atividade
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+                <div class="bg-gray-800/50 card-rounded p-6">
+                    <h3 class="text-xl font-bold text-brand-green mb-4">📊 Diagnóstico e Mapeamento</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>• Mapeamento visual dos fluxos de trabalho por setor</li>
+                        <li>• Diagnóstico detalhado dos processos operacionais</li>
+                        <li>• Relatório de gargalos identificados</li>
+                        <li>• Matriz de oportunidades de melhoria</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-800/50 card-rounded p-6">
+                    <h3 class="text-xl font-bold text-brand-green mb-4">🎯 Metas e Planejamento</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>• Metas táticas definidas por departamento</li>
+                        <li>• Alinhamento com objetivos estratégicos</li>
+                        <li>• Planos de ação práticos e detalhados</li>
+                        <li>• Cronograma de implementação</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-800/50 card-rounded p-6">
+                    <h3 class="text-xl font-bold text-brand-green mb-4">📈 KPIs e Monitoramento</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>• Indicadores-chave selecionados por setor</li>
+                        <li>• Sistema de monitoramento contínuo</li>
+                        <li>• Dashboard de acompanhamento</li>
+                        <li>• Relatórios de performance tática</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-800/50 card-rounded p-6">
+                    <h3 class="text-xl font-bold text-brand-green mb-4">🔧 Gestão e Otimização</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>• Relatórios analíticos para tomada de decisão</li>
+                        <li>• Pareceres técnicos e recomendações</li>
+                        <li>• Análise de otimização de recursos</li>
+                        <li>• Estratégias de maximização do ROI</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-900/50">
+        <div class="container mx-auto px-6 text-center">
+            <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" 
+                 alt="Live Consultoria" class="mx-auto mb-4 h-12">
+            <p class="opacity-75 mb-2">Live Liderança & Vendas - Consultoria Organizacional</p>
+            <p class="opacity-75 mb-4">Cléber Donato Borges | cleber.ihs@gmail.com</p>
+            <div class="text-sm opacity-50">
+                Contrato assinado em 19 de junho de 2025 | Vigência: 3 meses
+            </div>
+            <div class="developer-credit">
+                Desenvolvido por Cléber Donato
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('section');
+            elements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
+
