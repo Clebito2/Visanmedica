@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plano de Ação | Visanmédica - Live Consultoria</title>
+    <title>Proposta de Consultoria | Visan Médica</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
         :root {
             --azul-petroleo: #06192a;
@@ -17,29 +19,29 @@
             --font-primaria: 'Poppins', sans-serif;
             --font-secundaria: 'Merriweather', serif;
         }
-        
+
         body {
             font-family: var(--font-primaria);
             background-color: var(--azul-petroleo);
             color: var(--cinza-claro);
             background-image: radial-gradient(circle at 50% 0, rgba(255, 255, 255, 0.05), transparent 50%);
         }
-        
+
         h1, h2, h3, h4, h5, h6 {
             font-family: var(--font-primaria);
             font-weight: 700;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
-        
+
         p, li, span, td, th, div {
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
-        
+
         .text-brand-green {
             color: var(--verde-vibrante);
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
         }
-        
+
         .btn-brand {
             background-color: var(--verde-vibrante);
             color: var(--azul-petroleo);
@@ -47,14 +49,13 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-shadow: none;
             border-radius: 12px;
-            cursor: pointer;
         }
-        
+
         .btn-brand:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 232, 0, 0.2);
         }
-        
+
         .btn-secondary {
             background-color: transparent;
             color: var(--verde-vibrante);
@@ -63,9 +64,8 @@
             transition: all 0.3s ease;
             text-shadow: none;
             border-radius: 12px;
-            cursor: pointer;
         }
-        
+
         .btn-secondary:hover {
             background-color: var(--verde-vibrante);
             color: var(--azul-petroleo);
@@ -74,36 +74,39 @@
         .font-brand-secondary {
             font-family: var(--font-secundaria);
         }
-        
+
         .hero-gradient {
-            background: linear-gradient(rgba(6, 25, 42, 0.85), rgba(6, 25, 42, 1)), 
-                        url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2832&auto=format&fit=crop') no-repeat center center;
+            background: linear-gradient(rgba(6, 25, 42, 0.85), rgba(6, 25, 42, 1)), url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2832&auto=format&fit=crop') no-repeat center center;
             background-size: cover;
         }
         
         .section-bg-pattern {
-            background-color: #111827;
+            background-color: #0c1f33; 
             background-image: radial-gradient(rgba(200, 200, 200, 0.05) 1px, transparent 1px);
             background-size: 15px 15px;
         }
-        
+
         .tab-button {
             transition: all 0.3s ease;
             border-bottom: 3px solid transparent;
-            border-radius: 12px 12px 0 0;
-            cursor: pointer;
         }
-        
+
         .tab-button.active {
             color: var(--verde-vibrante);
             border-bottom-color: var(--verde-vibrante);
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         .fade-in {
             animation: fadeIn 0.8s ease-out forwards;
         }
@@ -111,6 +114,85 @@
         .card-rounded {
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Styles for PDF export */
+        #contrato-export {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+            padding: 40px !important;
+            font-family: 'Times New Roman', Times, serif !important;
+            font-size: 11pt !important;
+            line-height: 1.5 !important;
+            text-shadow: none !important;
+            max-width: 210mm !important;
+            margin: 0 auto !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+
+        #contrato-export * {
+            color: #000000 !important;
+            text-shadow: none !important;
+            background: transparent !important;
+        }
+        
+        #contrato-export h1,
+        #contrato-export h2,
+        #contrato-export h3 {
+            color: #000000 !important;
+            font-weight: bold !important;
+            margin-bottom: 16px !important;
+            margin-top: 24px !important;
+            page-break-after: avoid !important;
+            font-family: 'Times New Roman', Times, serif !important;
+        }
+        
+        #contrato-export h3 {
+            text-align: center !important;
+            font-size: 14pt !important;
+            text-transform: uppercase !important;
+            border-bottom: 2px solid #000000 !important;
+            padding-bottom: 8px !important;
+        }
+        
+        #contrato-export p {
+            text-align: justify !important;
+            margin-bottom: 12px !important;
+            text-indent: 1.5em !important;
+            orphans: 3 !important;
+            widows: 3 !important;
+        }
+        
+        #contrato-export .clausula {
+            margin-bottom: 20px !important;
+            page-break-inside: avoid !important;
+        }
+        
+        #contrato-export .clausula-titulo {
+            font-weight: bold !important;
+            text-transform: uppercase !important;
+            margin-bottom: 8px !important;
+            text-indent: 0 !important;
+        }
+        
+        #contrato-export .assinaturas {
+            margin-top: 60px !important;
+            page-break-inside: avoid !important;
+        }
+        
+        #contrato-export .linha-assinatura {
+            border-top: 1px solid #000000 !important;
+            margin-top: 40px !important;
+            padding-top: 8px !important;
+            text-align: center !important;
+            width: 300px !important;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hidden {
+            display: none;
         }
         
         .developer-credit {
@@ -121,361 +203,399 @@
             margin-top: 1rem;
             font-style: italic;
         }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        .status-badge {
-            background-color: var(--verde-vibrante);
-            color: var(--azul-petroleo);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
     </style>
 </head>
+
 <body>
+
     <!-- Header Hero Section -->
     <section class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-green-900/20"></div>
         <div class="container mx-auto px-6 text-center relative z-10">
             <div class="fade-in">
-                <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" 
-                     alt="Live Consultoria" class="mx-auto mb-8 h-20">
-                <div class="status-badge mb-6">CONTRATO ASSINADO ✓</div>
+                <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" alt="Logo Live Consultoria" class="mx-auto mb-8 h-20">
                 <h1 class="text-5xl md:text-7xl font-bold mb-6">
-                    Plano de <span class="text-brand-green">Ação</span>
+                    Proposta de <span class="text-brand-green">Consultoria Estratégica</span>
                 </h1>
-                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
-                    Consultoria Tática para <strong>VISANMÉDICA</strong><br>
-                    <span class="text-lg">Estruturação e Organização de Processos</span>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90" id="empresa-nome">
+                    <!-- Nome da empresa será inserido aqui -->
                 </p>
                 <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-                    <button onclick="scrollToSection('escopo')" 
-                            class="btn-brand px-8 py-4 text-lg">
-                        📋 Ver Escopo Contratual
+                    <button onclick="scrollToSection('diagnostico')" class="btn-brand px-8 py-4 text-lg">
+                        Ver Diagnóstico
                     </button>
-                    <button onclick="scrollToSection('cronograma')" 
-                            class="btn-secondary px-8 py-4 text-lg">
-                        📅 Ver Cronograma
+                    <button onclick="scrollToSection('proposta')" class="btn-secondary px-8 py-4 text-lg">
+                        Ver Proposta
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Escopo Contratual Section -->
-    <section id="escopo" class="py-20 section-bg-pattern">
+    <!-- Diagnóstico Section -->
+    <section id="diagnostico" class="py-20 section-bg-pattern">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    📋 Escopo <span class="text-brand-green">Contratual</span>
+                    Diagnóstico <span class="text-brand-green">Estratégico</span>
                 </h2>
                 <p class="text-xl opacity-90 max-w-3xl mx-auto">
-                    6 atividades estruturantes conforme contrato assinado em 19/06/2025
+                    Análise detalhada da situação atual e identificação de oportunidades de melhoria.
                 </p>
             </div>
-            
             <div class="max-w-4xl mx-auto">
-                <div class="bg-gray-800/50 backdrop-blur-sm card-rounded p-8 mb-8">
-                    <div class="font-brand-secondary text-lg leading-relaxed">
-                        <h3 class="text-2xl font-bold text-brand-green mb-4">🎯 Objetivo Contratual</h3>
-                        <p class="mb-6">
-                            <strong>Consultoria para organização e estruturação de processos</strong> da Visanmédica, desenvolvendo ações estruturantes em <strong>3 meses</strong> com <strong>270 horas</strong> de trabalho especializado.
-                        </p>
-                        
-                        <div class="grid md:grid-cols-3 gap-4 bg-green-900/30 border-l-4 border-green-500 p-4 rounded">
-                            <div class="text-center">
-                                <div class="text-2xl font-bold text-brand-green">3</div>
-                                <div class="text-sm">Meses</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-2xl font-bold text-brand-green">270</div>
-                                <div class="text-sm">Horas</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-2xl font-bold text-brand-green">R$ 9.000</div>
-                                <div class="text-sm">Investimento</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Atividades Contratuais -->
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-gray-800/50 card-rounded p-6">
-                        <div class="text-brand-green text-xl font-bold mb-3">ATIVIDADE 1</div>
-                        <h3 class="text-lg font-bold mb-3">Análise e Mapeamento de Processos</h3>
-                        <p class="text-sm opacity-90 mb-4">
-                            Diagnóstico detalhado dos fluxos de trabalho e processos operacionais existentes em cada setor, identificando pontos de melhoria, gargalos e oportunidades.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-brand-green font-semibold">60 horas</span>
-                            <span class="font-bold">R$ 2.000</span>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-800/50 card-rounded p-6">
-                        <div class="text-brand-green text-xl font-bold mb-3">ATIVIDADE 2</div>
-                        <h3 class="text-lg font-bold mb-3">Definição de Metas Táticas</h3>
-                        <p class="text-sm opacity-90 mb-4">
-                            Formulação de metas táticas claras, mensuráveis e alinhadas aos objetivos estratégicos, desdobrando-as para os diversos departamentos e equipes.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-brand-green font-semibold">30 horas</span>
-                            <span class="font-bold">R$ 1.000</span>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-800/50 card-rounded p-6">
-                        <div class="text-brand-green text-xl font-bold mb-3">ATIVIDADE 3</div>
-                        <h3 class="text-lg font-bold mb-3">Planos de Ação Operacionais</h3>
-                        <p class="text-sm opacity-90 mb-4">
-                            Elaboração de planos de ação práticos e detalhados para implementação das melhorias identificadas e alcance das metas táticas.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-brand-green font-semibold">50 horas</span>
-                            <span class="font-bold">R$ 1.667</span>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-800/50 card-rounded p-6">
-                        <div class="text-brand-green text-xl font-bold mb-3">ATIVIDADE 4</div>
-                        <h3 class="text-lg font-bold mb-3">Implementação de KPIs</h3>
-                        <p class="text-sm opacity-90 mb-4">
-                            Seleção e implementação de indicadores-chave de desempenho pertinentes a cada setor, visando monitorar o progresso das ações.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-brand-green font-semibold">40 horas</span>
-                            <span class="font-bold">R$ 1.333</span>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-800/50 card-rounded p-6">
-                        <div class="text-brand-green text-xl font-bold mb-3">ATIVIDADE 5</div>
-                        <h3 class="text-lg font-bold mb-3">Suporte à Gestão</h3>
-                        <p class="text-sm opacity-90 mb-4">
-                            Relatórios analíticos, pareceres e recomendações embasadas para subsidiar a tomada de decisões táticas de forma ágil e assertiva.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-brand-green font-semibold">45 horas</span>
-                            <span class="font-bold">R$ 1.500</span>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-800/50 card-rounded p-6">
-                        <div class="text-brand-green text-xl font-bold mb-3">ATIVIDADE 6</div>
-                        <h3 class="text-lg font-bold mb-3">Otimização de Recursos</h3>
-                        <p class="text-sm opacity-90 mb-4">
-                            Identificação de oportunidades para otimização na alocação e utilização de recursos, maximizando ROI e sustentabilidade operacional.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-brand-green font-semibold">45 horas</span>
-                            <span class="font-bold">R$ 1.500</span>
-                        </div>
+                <div class="bg-gray-800/50 backdrop-blur-sm card-rounded p-8">
+                    <div class="font-brand-secondary text-lg leading-relaxed" id="diagnostico-content">
+                        <!-- Conteúdo do diagnóstico será inserido aqui -->
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Cronograma Section -->
-    <section id="cronograma" class="py-20">
+    <!-- Proposta Tabs Section -->
+    <section id="proposta" class="py-20 bg-gray-900/40">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    📅 Cronograma <span class="text-brand-green">Executivo</span>
+                    Nossa <span class="text-brand-green">Proposta</span>
                 </h2>
                 <p class="text-xl opacity-90 max-w-3xl mx-auto">
-                    Execução em 3 meses - Agosto a Novembro de 2025
+                    Solução estruturada para transformar desafios em resultados.
                 </p>
             </div>
-            
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-gray-800/50 card-rounded p-8">
-                    <div class="space-y-6">
-                        <div class="flex items-center bg-green-900/30 rounded-lg p-6">
-                            <div class="w-24 text-brand-green font-bold text-xl">MÊS 1</div>
-                            <div class="flex-1">
-                                <div class="font-semibold text-lg mb-2">Diagnóstico e Estruturação Inicial</div>
-                                <div class="text-sm opacity-75 mb-2">05 de agosto a 05 de setembro de 2025</div>
-                                <div class="text-sm">
-                                    • Análise e Mapeamento de Processos (60h)<br>
-                                    • Definição e Estruturação de Metas Táticas (30h)
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-brand-green font-bold">90h</div>
-                                <div class="text-sm">R$ 3.000</div>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center bg-blue-900/30 rounded-lg p-6">
-                            <div class="w-24 text-brand-green font-bold text-xl">MÊS 2</div>
-                            <div class="flex-1">
-                                <div class="font-semibold text-lg mb-2">Planejamento e Implementação</div>
-                                <div class="text-sm opacity-75 mb-2">05 de setembro a 05 de outubro de 2025</div>
-                                <div class="text-sm">
-                                    • Desenvolvimento de Planos de Ação Operacionais (50h)<br>
-                                    • Implementação de Indicadores de Desempenho (40h)
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-brand-green font-bold">90h</div>
-                                <div class="text-sm">R$ 3.000</div>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center bg-purple-900/30 rounded-lg p-6">
-                            <div class="w-24 text-brand-green font-bold text-xl">MÊS 3</div>
-                            <div class="flex-1">
-                                <div class="font-semibold text-lg mb-2">Suporte e Otimização</div>
-                                <div class="text-sm opacity-75 mb-2">05 de outubro a 05 de novembro de 2025</div>
-                                <div class="text-sm">
-                                    • Suporte à Gestão e Tomada de Decisão (45h)<br>
-                                    • Otimização de Recursos (45h)
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-brand-green font-bold">90h</div>
-                                <div class="text-sm">R$ 3.000</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Condições de Pagamento -->
-                <div class="mt-8 bg-gray-800/50 card-rounded p-8">
-                    <h3 class="text-2xl font-bold text-brand-green mb-6 text-center">💳 Condições de Pagamento</h3>
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div class="text-center bg-gray-700/50 rounded-lg p-4">
-                            <div class="text-brand-green font-bold text-xl mb-2">1ª Parcela</div>
-                            <div class="font-bold text-lg">R$ 3.000,00</div>
-                            <div class="text-sm opacity-75">Venc: 10/09/2025</div>
-                        </div>
-                        <div class="text-center bg-gray-700/50 rounded-lg p-4">
-                            <div class="text-brand-green font-bold text-xl mb-2">2ª Parcela</div>
-                            <div class="font-bold text-lg">R$ 3.000,00</div>
-                            <div class="text-sm opacity-75">Venc: 10/10/2025</div>
-                        </div>
-                        <div class="text-center bg-gray-700/50 rounded-lg p-4">
-                            <div class="text-brand-green font-bold text-xl mb-2">3ª Parcela</div>
-                            <div class="font-bold text-lg">R$ 3.000,00</div>
-                            <div class="text-sm opacity-75">Venc: 10/11/2025</div>
-                        </div>
-                    </div>
-                    <div class="text-center mt-4 text-sm opacity-75">
-                        Pagamento com mês vencido - Transferência bancária
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Entregáveis Section -->
-    <section class="py-20 section-bg-pattern">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    📦 Entregáveis <span class="text-brand-green">Contratuais</span>
-                </h2>
-                <p class="text-xl opacity-90 max-w-3xl mx-auto">
-                    Produtos e resultados tangíveis por atividade
-                </p>
+            <!-- Tabs Navigation -->
+            <div class="flex flex-wrap justify-center mb-12 bg-gray-800/30 rounded-full p-2 max-w-xl mx-auto">
+                <button onclick="showTab('plano-acao')" class="tab-button active flex-1 px-6 py-3 text-lg font-semibold" id="tab-plano-acao">
+                    Plano de Ação
+                </button>
+                <button onclick="showTab('investimento')" class="tab-button flex-1 px-6 py-3 text-lg font-semibold" id="tab-investimento">
+                    Investimento
+                </button>
+                <button onclick="showTab('contrato')" class="tab-button flex-1 px-6 py-3 text-lg font-semibold" id="tab-contrato">
+                    Contrato
+                </button>
             </div>
-            
-            <div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-                <div class="bg-gray-800/50 card-rounded p-6">
-                    <h3 class="text-xl font-bold text-brand-green mb-4">📊 Diagnóstico e Mapeamento</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li>• Mapeamento visual dos fluxos de trabalho por setor</li>
-                        <li>• Diagnóstico detalhado dos processos operacionais</li>
-                        <li>• Relatório de gargalos identificados</li>
-                        <li>• Matriz de oportunidades de melhoria</li>
-                    </ul>
+
+            <!-- Tab Contents -->
+            <div class="max-w-6xl mx-auto">
+                <!-- Plano de Ação Tab -->
+                <div id="content-plano-acao" class="tab-content">
+                    <div class="bg-gray-800/50 backdrop-blur-sm card-rounded p-8">
+                        <h3 class="text-3xl font-bold mb-8 text-brand-green text-center">Cronograma de Execução</h3>
+                        <div id="plano-acao-content">
+                            <!-- Plano de ação será inserido aqui -->
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="bg-gray-800/50 card-rounded p-6">
-                    <h3 class="text-xl font-bold text-brand-green mb-4">🎯 Metas e Planejamento</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li>• Metas táticas definidas por departamento</li>
-                        <li>• Alinhamento com objetivos estratégicos</li>
-                        <li>• Planos de ação práticos e detalhados</li>
-                        <li>• Cronograma de implementação</li>
-                    </ul>
+
+                <!-- Investimento Tab -->
+                <div id="content-investimento" class="tab-content hidden">
+                    <div class="bg-gray-800/50 backdrop-blur-sm card-rounded p-8">
+                        <h3 class="text-3xl font-bold mb-8 text-brand-green text-center">Detalhamento do Investimento</h3>
+                        <div id="investimento-content">
+                            <!-- Investimento será inserido aqui -->
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="bg-gray-800/50 card-rounded p-6">
-                    <h3 class="text-xl font-bold text-brand-green mb-4">📈 KPIs e Monitoramento</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li>• Indicadores-chave selecionados por setor</li>
-                        <li>• Sistema de monitoramento contínuo</li>
-                        <li>• Dashboard de acompanhamento</li>
-                        <li>• Relatórios de performance tática</li>
-                    </ul>
-                </div>
-                
-                <div class="bg-gray-800/50 card-rounded p-6">
-                    <h3 class="text-xl font-bold text-brand-green mb-4">🔧 Gestão e Otimização</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li>• Relatórios analíticos para tomada de decisão</li>
-                        <li>• Pareceres técnicos e recomendações</li>
-                        <li>• Análise de otimização de recursos</li>
-                        <li>• Estratégias de maximização do ROI</li>
-                    </ul>
+
+                <!-- Contrato Tab -->
+                <div id="content-contrato" class="tab-content hidden">
+                    <div class="bg-gray-800/50 backdrop-blur-sm card-rounded p-8">
+                        <h3 class="text-3xl font-bold mb-8 text-brand-green text-center">Contrato de Prestação de Serviços</h3>
+                        <div class="flex gap-4 mb-6 justify-center">
+                            <button onclick="exportContractPDF()" class="btn-brand px-6 py-3">
+                                Baixar Contrato PDF
+                            </button>
+                        </div>
+                        <div class="bg-white/5 p-6 rounded-lg max-h-[60vh] overflow-y-auto">
+                            <div id="contrato-content">
+                                <!-- Contrato será inserido aqui -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 bg-gray-900/50">
+    <footer class="py-12 bg-gray-900/50">
         <div class="container mx-auto px-6 text-center">
-            <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" 
-                 alt="Live Consultoria" class="mx-auto mb-4 h-12">
-            <p class="opacity-75 mb-2">Live Liderança & Vendas - Consultoria Organizacional</p>
-            <p class="opacity-75 mb-4">Cléber Donato Borges | cleber.ihs@gmail.com</p>
-            <div class="text-sm opacity-50">
-                Contrato assinado em 19 de junho de 2025 | Vigência: 3 meses
-            </div>
+            <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" alt="Logo Live Consultoria" class="mx-auto mb-6 h-12">
+            <p class="text-brand-green font-semibold mb-2">Alta performance começa com atitude.</p>
+            <p class="opacity-70 mb-4">© 2024 Live Liderança & Vendas. Todos os direitos reservados.</p>
             <div class="developer-credit">
                 Desenvolvido por Cléber Donato
             </div>
         </div>
     </footer>
 
+    <!-- Hidden element for PDF export -->
+    <div id="contrato-export" class="hidden">
+        <!-- Formatted contract for PDF will be inserted here -->
+    </div>
+
     <script>
+        // DATA OBJECT - All proposal data is contained here
+        const dados = {
+            "cliente": {
+                "nomeCompleto": "Visan Médica Equipamentos e Serviços",
+                "cnpj": "03.959.575/0001-24",
+                "endereco": "Av. C-1, 827, Qd. 09, Lt. 19, Jardim América, Goiânia - GO, CEP 74265-010",
+                "representanteNome": "Simone Fernandes",
+                "representanteCpf": "Não informado no contrato"
+            },
+            "consultor": {
+                "nomeCompleto": "Cleber Donato Borges",
+                "consultorEmail": "cleber.ihs@gmail.com"
+            },
+            "proposta": {
+                "dataApresentacao": "30 de Junho de 2025",
+                "diagnostico": `
+                    <p class='mb-4'>A Visan Médica, uma empresa de porte médio com 23 colaboradores e atuante no setor de equipamentos e manutenção médica, enfrenta um momento crucial de transformação. A análise inicial revela três desafios centrais e interdependentes que precisam ser endereçados de forma estratégica para garantir a conformidade regulatória, a eficiência operacional e a sustentabilidade do crescimento.</p>
+                    <ul class='list-disc list-inside space-y-3 mb-4'>
+                        <li><strong>Necessidade de Adequação Regulatória (RDC 665/22):</strong> A urgência em adaptar a documentação e os processos para atuar como distribuidora de equipamentos hospitalares é um ponto crítico. A não conformidade representa um risco operacional e de mercado significativo.</li>
+                        <li><strong>Baixa Maturidade em Automação:</strong> A falta de automação estruturada e de um processo de suporte definido para o sistema JoinCI gera gargalos, retrabalho e limita a capacidade da equipe de focar em atividades de maior valor agregado.</li>
+                        <li><strong>Processos Internos Descentralizados:</strong> A ausência de processos internos padronizados e otimizados em todos os setores resulta em ineficiências, falhas de comunicação e dificulta a gestão e o monitoramento de performance.</li>
+                    </ul>
+                    <p>Conclui-se que a Visan Médica possui uma base sólida, mas opera com processos que não acompanharam seu potencial de crescimento. A reestruturação proposta não é apenas uma melhoria, mas uma necessidade fundamental para fortalecer as operações, mitigar riscos e posicionar a empresa para um futuro mais competitivo e escalável.</p>
+                `,
+                "planoDeAcao": [{
+                    "etapa": "01",
+                    "titulo": "Diagnóstico e Alinhamento Regulatório",
+                    "descricao": "Análise aprofundada dos processos atuais versus os requisitos da RDC 665/22. Mapeamento de GAPs e elaboração do plano de adequação documental e processual.",
+                    "duracao": "3 Semanas"
+                }, {
+                    "etapa": "02",
+                    "titulo": "Reengenharia de Processos e Estruturação de Automação",
+                    "descricao": "Redesenho dos fluxos de trabalho de todos os setores (Comercial, Técnico, Administrativo). Definição dos requisitos de automação e suporte para o sistema JoinCI.",
+                    "duracao": "5 Semanas"
+                }, {
+                    "etapa": "03",
+                    "titulo": "Implementação e Capacitação",
+                    "descricao": "Implementação dos novos processos e das automações definidas. Treinamento das equipes e dos líderes para garantir a correta execução e adoção das novas práticas.",
+                    "duracao": "4 Semanas"
+                }, {
+                    "etapa": "04",
+                    "titulo": "Monitoramento e Otimização Contínua",
+                    "descricao": "Estabelecimento de Indicadores Chave de Desempenho (KPIs) para monitorar a eficiência dos novos processos. Criação de um ciclo de reuniões de acompanhamento para melhoria contínua.",
+                    "duracao": "Contínuo"
+                }],
+                "escopoDetalhado": [{
+                    "titulo": "Documentação RDC 665/22",
+                    "detalhes": "Entrega de todos os manuais, procedimentos operacionais padrão (POPs) e registros necessários para a conformidade com a RDC 665/22."
+                }, {
+                    "titulo": "Fluxos de Processo Otimizados",
+                    "detalhes": "Desenho dos novos fluxogramas de processos para todos os setores, com papéis e responsabilidades claros."
+                }, {
+                    "titulo": "Plano de Automação JoinCI",
+                    "detalhes": "Documento detalhando as automações a serem implementadas no sistema JoinCI e o novo fluxo de atendimento de suporte."
+                }, {
+                    "titulo": "Dashboard de KPIs",
+                    "detalhes": "Painel de indicadores de desempenho para acompanhamento da gestão, permitindo tomadas de decisão baseadas em dados."
+                }],
+                "investimento": {
+                    "valorTotalNumerico": 16200.00,
+                    "valorTotalExtenso": "Dezesseis mil e duzentos reais",
+                    "formaPagamento": "O valor total será dividido em 3 (três) parcelas mensais e consecutivas de R$ 5.400,00 (cinco mil e quatrocentos reais), com vencimento no dia 10 de cada mês subsequente à prestação dos serviços."
+                },
+                "contrato": {
+                    "textoFormatado": "" // Será preenchido pela função `gerarContratoHTML`
+                }
+            }
+        };
+
+        // Function to generate the contract HTML
+        function gerarContratoHTML(dados) {
+            const dataHoje = new Date();
+            const dia = String(dataHoje.getDate()).padStart(2, '0');
+            const meses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+            const mes = meses[dataHoje.getMonth()];
+            const ano = dataHoje.getFullYear();
+            const dataExtenso = `${dia} de ${mes} de ${ano}`;
+        
+            return `
+                <div style="text-align: center; font-weight: bold; text-transform: uppercase; margin-bottom: 20px;">
+                    CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE CONSULTORIA ESTRATÉGICA
+                </div>
+
+                <div class="clausula">
+                    <p class="clausula-titulo">CLÁUSULA PRIMEIRA – DAS PARTES</p>
+                    <p><strong>CONTRATANTE:</strong> ${dados.cliente.nomeCompleto}, pessoa jurídica de direito privado, inscrita no CNPJ sob o nº ${dados.cliente.cnpj}, com sede em ${dados.cliente.endereco}, neste ato representada por seu(sua) representante legal, ${dados.cliente.representanteNome}.</p>
+                    <p><strong>CONTRATADA:</strong> CLEBER DONATO BORGES, pessoa jurídica de direito privado, inscrita no CNPJ sob o nº 53.066.596/0001-99, com sede na R 242, A, QUADRA 102C; LOTE 23, SETOR LESTE UNIVERSITÁRIO, GOIÂNIA, GO CEP 74.603-190, neste ato representada por seu titular, ${dados.consultor.nomeCompleto}.</p>
+                </div>
+
+                <div class="clausula">
+                    <p class="clausula-titulo">CLÁUSULA SEGUNDA – DO OBJETO</p>
+                    <p>O presente contrato tem por objeto a prestação de serviços de consultoria estratégica pela CONTRATADA à CONTRATANTE, com foco na reestruturação de processos internos, adequação regulatória e implementação de melhorias operacionais, conforme detalhado no plano de ação abaixo:</p>
+                    <ol style="list-style-type: decimal; margin-left: 30px;">
+                        ${dados.proposta.planoDeAcao.map(etapa => `<li><strong>${etapa.titulo} (${etapa.duracao}):</strong> ${etapa.descricao}</li>`).join('')}
+                    </ol>
+                    <p>Os principais entregáveis desta consultoria são:</p>
+                    <ul style="list-style-type: disc; margin-left: 30px;">
+                        ${dados.proposta.escopoDetalhado.map(item => `<li><strong>${item.titulo}:</strong> ${item.detalhes}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <div class="clausula">
+                    <p class="clausula-titulo">CLÁUSULA TERCEIRA – DO PRAZO</p>
+                    <p>O prazo estimado para a execução das fases de diagnóstico, reengenharia e implementação (Etapas 01, 02 e 03) é de 12 (doze) semanas a contar da assinatura deste instrumento. A Etapa 04 (Monitoramento) terá caráter contínuo durante a vigência do contrato.</p>
+                </div>
+
+                <div class="clausula">
+                    <p class="clausula-titulo">CLÁUSULA QUARTA – DO VALOR E DA FORMA DE PAGAMENTO</p>
+                    <p>Pela prestação dos serviços descritos neste contrato, a CONTRATANTE pagará à CONTRATADA o valor total de R$ ${dados.proposta.investimento.valorTotalNumerico.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} (${dados.proposta.investimento.valorTotalExtenso}).</p>
+                    <p>O pagamento será realizado em 3 (três) parcelas mensais de R$ ${(dados.proposta.investimento.valorTotalNumerico / 3).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}, a serem pagas através de transferência bancária para conta de titularidade da CONTRATADA, com vencimento todo dia 10 do mês subsequente à prestação dos serviços.</p>
+                </div>
+
+                <div class="clausula">
+                    <p class="clausula-titulo">CLÁUSULA QUINTA – DAS OBRIGAÇÕES</p>
+                    <p><strong>Da CONTRATANTE:</strong> Fornecer todas as informações, documentos e acesso às equipes necessários para a execução do trabalho; realizar os pagamentos nas datas acordadas; designar um responsável interno para acompanhar o projeto.</p>
+                    <p><strong>Da CONTRATADA:</strong> Prestar os serviços com zelo, diligência e qualidade técnica; cumprir os prazos acordados; manter sigilo sobre todas as informações da CONTRATANTE; fornecer relatórios de andamento do projeto.</p>
+                </div>
+
+                <div class="clausula">
+                    <p class="clausula-titulo">CLÁUSULA SEXTA – DA CONFIDENCIALIDADE</p>
+                    <p>As partes se comprometem a manter em absoluto sigilo todas as informações técnicas, comerciais e estratégicas a que tiverem acesso em virtude deste contrato, não podendo divulgá-las a terceiros sob qualquer pretexto.</p>
+                </div>
+
+                <div class="clausula">
+                    <p class="clausula-titulo">CLÁUSULA SÉTIMA – DA RESCISÃO</p>
+                    <p>O presente contrato poderá ser rescindido por qualquer das partes mediante notificação por escrito com 30 (trinta) dias de antecedência. Em caso de rescisão imotivada pela CONTRATANTE, serão devidos os valores proporcionais aos serviços já prestados.</p>
+                </div>
+
+                <div class="clausula">
+                    <p class="clausula-titulo">CLÁUSULA OITAVA – DO FORO</p>
+                    <p>Fica eleito o foro da Comarca de Goiânia, Estado de Goiás, para dirimir quaisquer controvérsias oriundas deste contrato, com renúncia a qualquer outro, por mais privilegiado que seja.</p>
+                </div>
+
+                <p>E, por estarem justas e contratadas, as partes assinam o presente instrumento em 2 (duas) vias de igual teor e forma.</p>
+
+                <div class="assinaturas" style="margin-top: 80px; text-align: center;">
+                    <p>Goiânia, ${dataExtenso}.</p>
+                    <div style="display: flex; justify-content: space-around; margin-top: 80px;">
+                        <div class="linha-assinatura">
+                            ${dados.cliente.nomeCompleto}<br>
+                            CNPJ: ${dados.cliente.cnpj}<br>
+                            Representante: ${dados.cliente.representanteNome}
+                        </div>
+                        <div class="linha-assinatura">
+                            CLEBER DONATO BORGES<br>
+                            CNPJ: 53.066.596/0001-99<br>
+                            Representante: ${dados.consultor.nomeCompleto}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Populate contract data on load
+        dados.proposta.contrato.textoFormatado = gerarContratoHTML(dados);
+
+        // Navigation Functions
         function scrollToSection(sectionId) {
             document.getElementById(sectionId).scrollIntoView({
                 behavior: 'smooth'
             });
         }
-        
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
+
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+            document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
+            document.getElementById(`content-${tabName}`).classList.remove('hidden');
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+        }
+
+        // Action function for PDF export
+        function exportContractPDF() {
+            const element = document.createElement('div');
+            element.innerHTML = dados.proposta.contrato.textoFormatado;
+            // Apply export styles directly for the PDF generation
+            const exportStyle = document.getElementById('contrato-export').style.cssText;
+            element.setAttribute('style', exportStyle);
+            document.body.appendChild(element);
+
+            const nomeEmpresa = dados.cliente.nomeCompleto.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+            const dataAtual = new Date().toISOString().split('T')[0];
+            const nomeArquivo = `contrato-consultoria-${nomeEmpresa}-${dataAtual}.pdf`;
+
+            const opt = {
+                margin: [20, 20, 20, 20], // Margins in mm [top, left, bottom, right]
+                filename: nomeArquivo,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak: { mode: ['css', 'legacy'] }
+            };
+
+            html2pdf().from(element).set(opt).save().then(() => {
+                document.body.removeChild(element);
             });
-        }, observerOptions);
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            const elements = document.querySelectorAll('section');
-            elements.forEach(el => observer.observe(el));
+        }
+
+
+        // Render function
+        function renderizarProposta() {
+            document.getElementById('empresa-nome').textContent = dados.cliente.nomeCompleto;
+            document.getElementById('diagnostico-content').innerHTML = dados.proposta.diagnostico;
+
+            // Render action plan
+            let planoHTML = '<div class="space-y-6">';
+            dados.proposta.planoDeAcao.forEach(etapa => {
+                planoHTML += `
+                <div class="bg-gray-700/30 card-rounded p-6 border-l-4 border-green-500 hover:bg-gray-700/50 transition-colors duration-300">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3">
+                        <h4 class="text-xl font-semibold text-brand-green mb-2 sm:mb-0">Etapa ${etapa.etapa}: ${etapa.titulo}</h4>
+                        <span class="bg-green-500/20 text-green-300 px-3 py-1 rounded-full text-sm font-medium">${etapa.duracao}</span>
+                    </div>
+                    <p class="text-gray-300">${etapa.descricao}</p>
+                </div>`;
+            });
+            planoHTML += '</div>';
+            document.getElementById('plano-acao-content').innerHTML = planoHTML;
+
+            // Render investment
+            let investimentoHTML = `
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="text-center">
+                    <p class="text-xl text-gray-400 mb-2">Valor Total do Projeto</p>
+                    <div class="text-6xl font-bold text-brand-green mb-4">
+                        R$ ${dados.proposta.investimento.valorTotalNumerico.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                    </div>
+                    <p class="text-lg text-gray-300">${dados.proposta.investimento.valorTotalExtenso}</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-gray-700/30 card-rounded p-6">
+                        <h4 class="text-xl font-semibold mb-3 text-brand-green">Condições de Pagamento</h4>
+                        <p class="text-lg text-gray-300">${dados.proposta.investimento.formaPagamento}</p>
+                    </div>
+                    <div class="bg-green-500/10 border border-green-500/30 card-rounded p-6">
+                        <h4 class="text-xl font-semibold mb-3 text-brand-green">Valor Agregado</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-center gap-3"><span class="text-brand-green font-bold">✓</span><span>Acompanhamento pós-projeto por 30 dias</span></li>
+                            <li class="flex items-center gap-3"><span class="text-brand-green font-bold">✓</span><span>Acesso a materiais e templates exclusivos</span></li>
+                            <li class="flex items-center gap-3"><span class="text-brand-green font-bold">✓</span><span>Suporte prioritário durante a implementação</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>`;
+            document.getElementById('investimento-content').innerHTML = investimentoHTML;
+            
+            // Render contract
+            document.getElementById('contrato-content').innerHTML = dados.proposta.contrato.textoFormatado;
+            document.getElementById('contrato-export').innerHTML = dados.proposta.contrato.textoFormatado;
+        }
+
+        // Initialize page on load
+        document.addEventListener('DOMContentLoaded', function() {
+            renderizarProposta();
+            // Default to 'plano-acao' tab
+            showTab('plano-acao');
         });
     </script>
-</body>
-</html>
 
+</body>
+
+</html>
